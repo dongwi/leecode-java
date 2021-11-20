@@ -1,24 +1,19 @@
 package com.dong.binaryTree;
 
-import com.sun.source.tree.Tree;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class FindPathSolution {
-    private List<List<Integer>> result = new ArrayList<>();
-
-    public List<List<Integer>> findPath(TreeNode root, int target) {
+    public ArrayList<ArrayList<Integer>> FindPath(TreeNode root, int expectNumber) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         if (root == null) {
             return result;
         }
-        List<Integer> temp = new ArrayList<>();
-        findPath(root, target, temp);
-        result.add(temp);
+        ArrayList<Integer> temp = new ArrayList<>();
+        findPath(result, root, expectNumber, temp);
         return result;
     }
 
-    public void findPath(TreeNode root, int target, List<Integer> temp) {
+    public void findPath(ArrayList<ArrayList<Integer>> result, TreeNode root, int target, ArrayList<Integer> temp) {
         temp.add(root.val);
         if (root.left == null && root.right == null) {
             if (root.val == target) {
@@ -27,10 +22,10 @@ public class FindPathSolution {
             }
         } else {
             if (root.left != null) {
-                findPath(root.left, target - root.val, temp);
+                findPath(result, root.left, target - root.val, temp);
             }
             if (root.right != null) {
-                findPath(root.right, target - root.val, temp);
+                findPath(result, root.right, target - root.val, temp);
             }
         }
         if (temp.size() != 0) {
