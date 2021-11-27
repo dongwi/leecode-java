@@ -1,6 +1,5 @@
 package com.dong.binaryTree;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class LevelOrder {
