@@ -1,6 +1,6 @@
 package com.dong.basic;
 
-public class MergeList {
+public class MergeArray {
     public void merge(int A[], int m, int B[], int n) {
         int i = m - 1;
         int j = n - 1;
